@@ -13,7 +13,7 @@
 
 </details>
 
-2. Using Props, create a To Do app. Where teh user can **Add** and **Delete** To Dos. The main objective is to implement the To Do component with its required props.
+2. Using Props, create a To Do app. Where the user can **Add** and **Delete** To Dos. The main objective is to implement the To Do component with its required props.
 
 <details>
   <summary>Topics</summary>
