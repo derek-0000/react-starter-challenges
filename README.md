@@ -2,7 +2,12 @@
 
 1. Create a Random Color generator. The objective is to have large clickable area that when clicked, generates a random hexadecimal color and updates the ui to display the current color.
 
-2. Make a `Card` component that Shows/Hides content when clicking a button that is part of the card.
+2. Make a `Card` component that Shows/Hides content when clicking a button that is part of the card. Also, map through an array of objects to display a list of `Card` components. Replace `Buy` button to `Details` when clocking details we want to see a brief description of the item and it's price.
+
+_Note: Style is not our priority. We want the card to be functional and to adhere to all of the requirements. Then we can style our components and list._
+
+![image](https://github.com/derek-0000/react-starter-challenges/assets/81263819/716ce891-8358-43fe-926e-67cbf7879c4a)
+
 
 <details>
   <summary>Topics</summary>
