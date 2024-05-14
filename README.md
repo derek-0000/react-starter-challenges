@@ -18,7 +18,7 @@ _Note: Style is not our priority. We want the card to be functional and to adher
 
 #### React
 
-  [State](https://react.dev/learn) -> [Event Handlers](https://react.dev/learn/responding-to-events)
+  [State](https://react.dev/learn) -> [Event Handlers](https://react.dev/learn/responding-to-events) -> https://react.dev/learn/conditional-rendering
 
 </details>
 
