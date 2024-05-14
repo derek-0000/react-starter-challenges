@@ -4,21 +4,21 @@ import { useState } from "react";
 export default function RandomColorGenerator() {
   
   const [color, setColor] = useState('#000000');
+  const numeros = ['0','1','2','3','4','5', '6','7','8','9','A','B', 'C', 'D', 'E', 'F'];
 
-  function hexa(){
-    let num;
-    const color = [];
+  function generateHexadecimal(){
+    let index;
+    let colors ='';
 
     for (let i = 0; i < 6; i++) {
-      num = Math.floor(Math.random()*10);
-      color.push(num);
+      index = Math.floor(Math.random()*15);
+      colors = colors + numeros[index];
     }
-
-    return ('#' +(color.join('')));
+    return ('#' + colors);
   }
 
   function handleClick(){
-    setColor(hexa)
+    setColor(generateHexadecimal)
   }
 
   return (
