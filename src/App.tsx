@@ -11,9 +11,13 @@ function App() {
         <Link to="/random-color-generator">
           <Typography>Random Color Generator</Typography>
         </Link>
+        <Link to="/card">
+          <Typography>Card</Typography>
+        </Link>
         <Link to="/using-props">
           <Typography>Using Props</Typography>
         </Link>
+        
       </Stack>
     </Container>
   );
