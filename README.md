@@ -26,6 +26,24 @@ _Note: Style is not our priority. We want the card to be functional and to adher
 <details>
   <summary>Topics</summary>
 
+### React
+
+  How to use children components as props:
+
+  ```JSX
+  const Component = ({children}) => (
+    <Box>{children}</Box>
+  )
+
+  <Component>
+    <div>A children component</div>
+  </Component>
+  ```
+
+### react-router-dom
+
+  [Router](https://reactrouter.com/en/main/routers/create-browser-router) -> [Link](https://reactrouter.com/en/main/components/link) -> [Outlet](https://reactrouter.com/en/main/components/outlet)
+
 </details>
 
 4. ...
