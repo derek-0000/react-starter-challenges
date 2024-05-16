@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RandomColorGenerator from "./challenges/RandomColorGenerator.tsx";
 import UsingProps from "./challenges/UsingProps.tsx";
+import CardList from "./challenges/CardList.tsx";
+
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/using-props",
     element: <UsingProps />,
+  },
+  {
+    path: "/card",
+    element: <CardList />,
   },
 ]);
 
