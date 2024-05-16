@@ -8,7 +8,6 @@ _Note: Style is not our priority. We want the card to be functional and to adher
 
 ![image](https://github.com/derek-0000/react-starter-challenges/assets/81263819/716ce891-8358-43fe-926e-67cbf7879c4a)
 
-
 <details>
   <summary>Topics</summary>
 
@@ -18,11 +17,20 @@ _Note: Style is not our priority. We want the card to be functional and to adher
 
 #### React
 
-  [State](https://react.dev/learn) -> [Event Handlers](https://react.dev/learn/responding-to-events) -> https://react.dev/learn/conditional-rendering
+  [State](https://react.dev/learn) -> [Event Handlers](https://react.dev/learn/responding-to-events) -> <https://react.dev/learn/conditional-rendering>
 
 </details>
 
-3. Using Props, create a To Do app. Where the user can **Add** and **Delete** To Dos. The main objective is to implement the To Do component with its required props.
+3. Our challenges App is looking a bit dull, we want o beter the UI/UX by creating a `Layout` component. This layout will provide the user with a button that redirects them to `/` to navigate to the rest of the challenges.
+
+<details>
+  <summary>Topics</summary>
+
+</details>
+
+4. ...
+
+5. Using Props, create a To Do app. Where the user can **Add** and **Delete** To Dos. The main objective is to implement the To Do component with its required props.
 
 <details>
   <summary>Topics</summary>
