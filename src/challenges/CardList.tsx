@@ -24,13 +24,11 @@ export default function CardList() {
     <Grid container>{renderCards()}</Grid>
   </>;
 }
-
-
+        
 type Props = {
   title: string;
   description: string;
 };
-
 
 // Implement Hidding and showing description Inside the component
 const Card = ({ description, title }: Props) => {
@@ -44,20 +42,11 @@ const Card = ({ description, title }: Props) => {
 
   return (
     <>
-    <Grid item style={{margin: 20}}>
-    <Typography>{title}</Typography>
-      <Button variant='contained' onClick={handleClick}>{active ? 'Hide' : 'Show'}</Button>
-      {active &&<Typography>{description}</Typography>}
-
-
-    </Grid>
-
-
+      <Grid item style={{margin: 20}}>
+      <Typography>{title}</Typography>
+        <Button variant='contained' onClick={handleClick}>{active ? 'Hide' : 'Show'}</Button>
+        {active &&<Typography>{description}</Typography>}
+      </Grid>
     </>
   );
 };
-
-
-
-
-

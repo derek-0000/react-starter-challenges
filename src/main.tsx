@@ -6,7 +6,6 @@ import RandomColorGenerator from "./challenges/RandomColorGenerator.tsx";
 import UsingProps from "./challenges/UsingProps.tsx";
 import CardList from "./challenges/CardList.tsx";
 
-
 const router = createBrowserRouter([
   {
     path: "/",

@@ -17,6 +17,7 @@ function App() {
         <Link to="/using-props">
           <Typography>Using Props</Typography>
         </Link>
+        
       </Stack>
     </Container>
   );
