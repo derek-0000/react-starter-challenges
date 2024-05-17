@@ -6,27 +6,32 @@ import RandomColorGenerator from "./challenges/RandomColorGenerator.tsx";
 import UsingProps from "./challenges/UsingProps.tsx";
 import CardList from "./challenges/CardList.tsx";
 import Layout from "./challenges/Layout.tsx"
+import VideoSearcher from "./challenges/VideoSearcher.tsx";
 
 const router = createBrowserRouter([
- {
-   path: "/",
-   element: <Layout><Outlet/></Layout>, //Add Layout component here
-   children: [
-     { index: true, element: <App /> },
-     {
-       path: "/random-color-generator",
-       element: <RandomColorGenerator />,
-     },
-     {
-       path: "/using-props",
-       element: <UsingProps />,
-     },
-     {
-       path: "/card",
-       element: <CardList />,
-     },
-   ],
- },
+  {
+    path: "/",
+    element:  <Layout><Outlet/></Layout>, //Add Layout component here
+    children: [
+      { index: true, element: <App /> },
+      {
+        path: "/random-color-generator",
+        element: <RandomColorGenerator />,
+      },
+      {
+        path: "/using-props",
+        element: <UsingProps />,
+      },
+      {
+        path: "/card",
+        element: <CardList />,
+      },
+      {
+        path: "/videoSearcher",
+        element: <VideoSearcher />,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
