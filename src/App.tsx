@@ -17,7 +17,9 @@ function App() {
         <Link to="/using-props">
           <Typography>Using Props</Typography>
         </Link>
-        
+        <Link to="/videoSearcher">
+          <Typography>Video Searcher</Typography>
+        </Link>
       </Stack>
     </Container>
   );

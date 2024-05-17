@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RandomColorGenerator from "./challenges/RandomColorGenerator.tsx";
 import UsingProps from "./challenges/UsingProps.tsx";
 import CardList from "./challenges/CardList.tsx";
+import VideoSearcher from "./challenges/VideoSearcher.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/card",
         element: <CardList />,
+      },
+      {
+        path: "/videoSearcher",
+        element: <VideoSearcher />,
       },
     ],
   },
