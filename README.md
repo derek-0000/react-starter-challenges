@@ -4,8 +4,6 @@
 
 2. Make a `Card` component that Shows/Hides content when clicking a button that is part of the card. Also, map through an array of objects to display a list of `Card` components. Replace `Buy` button to `Details` when clocking details we want to see a brief description of the item and it's price.
 
-_Note: Style is not our priority. We want the card to be functional and to adhere to all of the requirements. Then we can style our components and list._
-
 ![image](https://github.com/derek-0000/react-starter-challenges/assets/81263819/716ce891-8358-43fe-926e-67cbf7879c4a)
 
 <details>
@@ -46,9 +44,54 @@ _Note: Style is not our priority. We want the card to be functional and to adher
 
 </details>
 
-4. ...
+4. Clone the `VideoSearch` component from [React](https://react.dev). We want a video search component that maps through a list of videos and renders them. We also need a searchbar that shows those videos that match the search input. After implementing everything style the component to look jus as React's example.
 
-5. Using Props, create a To Do app. Where the user can **Add** and **Delete** To Dos. The main objective is to implement the To Do component with its required props.
+![alt text](image.png)
+
+<details>
+  <summary>Topics</summary>
+
+#### JS
+
+  [Arrays](https://github.com/Asabeneh/30-Days-Of-JavaScript/blob/master/05_Day_Arrays/05_day_arrays.md) -> [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
+
+#### React
+
+  [State](https://react.dev/learn) ->
+  [Event Handlers](https://react.dev/learn/responding-to-events) ->
+  [Update Array State](https://react.dev/learn/updating-arrays-in-state) ->
+  [Rendering Lists](https://react.dev/learn/rendering-lists) ->
+
+</details>
+
+5. Our users now want to show their love to the creators. Let's add a like button!
+
+<details>
+  <summary>Topics</summary>
+
+#### React
+
+  [State](https://react.dev/learn) ->
+  [Event Handlers](https://react.dev/learn/responding-to-events) ->
+  [Update Object State](https://react.dev/learn/updating-objects-in-state) ->
+  [Conditional Rendering](https://react.dev/learn/conditional-rendering)
+
+</details>
+
+6. Our userbase is growing a lot! We need to start fetching our videos from an API instead off adding them on request.
+
+<details>
+  <summary>Topics</summary>
+
+#### React
+
+  [State](https://react.dev/learn) ->
+  [useEffect](https://react.dev/learn/responding-to-events) ->
+  [React Querry](https://tanstack.com/query/latest/docs/framework/react/guides/queries) ->
+
+</details>
+
+7. Using Props, create a To Do app. Where the user can **Add** and **Delete** To Dos. The main objective is to implement the To Do component with its required props.
 
 <details>
   <summary>Topics</summary>
