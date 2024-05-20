@@ -79,7 +79,7 @@ export default function VideoSearcher() {
             ),
           }}
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => setText(e.target.value.toLowerCase())}
         ></TextField>
         <Typography variant="h6" fontWeight="bold" paddingY={1}>
           Videos
