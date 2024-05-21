@@ -65,11 +65,8 @@ export default function VideoSearcher() {
           const update = !element.like;
 
           return { ...element, like: update };
-        } else {
-          const update = element.like;
-
-          return { ...element, like: update };
         }
+        return element;
       })
     );
   }
