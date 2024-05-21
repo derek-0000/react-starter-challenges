@@ -54,30 +54,25 @@ export default function VideoSearcher() {
       (item) =>
         item.name.toLowerCase().includes(text.toLowerCase()) ||
         item.autor.toLowerCase().includes(text.toLocaleLowerCase())
-        );
-        return videos;
-
+    );
+    return videos;
   }
 
   function handleClick(index: number) {
     newArray(
       array.map((element, i) => {
         if (i === index) {
-          const update = !(element.like)
+          const update = !element.like;
 
-          return {...element, like: update}
+          return { ...element, like: update };
+        } else {
+          const update = element.like;
 
-        }else{
-          const update = (element.like)
-
-          return {...element, like: update}
- 
+          return { ...element, like: update };
         }
       })
     );
   }
-
-  console.log(array)
 
   return (
     <>
@@ -105,7 +100,9 @@ export default function VideoSearcher() {
           onChange={(e) => setText(e.target.value)}
         ></TextField>
         <Typography variant="h6" fontWeight="bold" paddingY={1}>
-          Videos
+          {filteredVideos().length > 0
+            ? filteredVideos().length + " Videos"
+            : `No matches for “${text}”`}
         </Typography>
       </Stack>
 
