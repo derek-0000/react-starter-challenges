@@ -4,47 +4,14 @@ import {
   Stack,
   InputAdornment,
   List,
-  ListItem,
-  ListItemText,
-  IconButton,
 } from "@mui/material";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 //import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { data } from "../utils/mock/videos.ts";
+import Video from "../components/video/Video.tsx";
 
 export default function VideoSearcher() {
-  const data = [
-    {
-      name: "React 18 Keynote",
-      autor: "The React Team",
-      image:
-        "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg",
-      like: false,
-    },
-    {
-      name: "Hello",
-      autor: "Tomby",
-      image:
-        "https://cdn.britannica.com/34/235834-050-C5843610/two-different-breeds-of-cats-side-by-side-outdoors-in-the-garden.jpg",
-      like: false,
-    },
-    {
-      name: "Hola",
-      autor: "Saludos",
-      image:
-        "https://cdn.britannica.com/39/226539-050-D21D7721/Portrait-of-a-cat-with-whiskers-visible.jpg",
-      like: false,
-    },
-    {
-      name: "Gato",
-      autor: "Cat",
-      image:
-        "https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg",
-      like: false,
-    },
-  ];
-
   const [text, setText] = useState("");
 
   const [array, newArray] = useState(data);
@@ -55,15 +22,22 @@ export default function VideoSearcher() {
         item.name.toLowerCase().includes(text.toLowerCase()) ||
         item.autor.toLowerCase().includes(text.toLocaleLowerCase())
     );
+
     return videos;
   }
 
-  function handleClick(index: number) {
+  function handleClick(item: {
+    name: string;
+    autor: string;
+    image: string;
+    like: boolean;
+  }) {
+    const e = array.indexOf(item);
+
     newArray(
       array.map((element, i) => {
-        if (i === index) {
+        if (i === e) {
           const update = !element.like;
-
           return { ...element, like: update };
         }
         return element;
@@ -105,26 +79,13 @@ export default function VideoSearcher() {
 
       {filteredVideos().map((item, index) => (
         <List key={index} sx={{ background: "" }}>
-          <ListItem>
-            <div>
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{ width: "130px", height: "80px", borderRadius: 15 }}
-              />
-            </div>
-            <ListItemText sx={{ margin: 2 }}>
-              <Typography fontWeight="bold">{item.name}</Typography>
-              <Typography sx={{ color: "gray" }}>{item.autor}</Typography>
-            </ListItemText>
-            <IconButton onClick={() => handleClick(index)}>
-              {item.like ? (
-                <FavoriteBorderOutlinedIcon sx={{ color: "red" }} />
-              ) : (
-                <FavoriteBorderOutlinedIcon sx={{ color: "gray" }} />
-              )}
-            </IconButton>
-          </ListItem>
+          <Video
+            name={item.name}
+            image={item.image}
+            like={item.like}
+            autor={item.autor}
+            handleClick={() => handleClick(item)}
+          />
         </List>
       ))}
     </>
