@@ -18,69 +18,45 @@ import { useQuery } from "@tanstack/react-query";
 export default function VideoSearcher() {
   const [text, setText] = useState("");
 
-  //const [array, newArray] = useState(info);
-
-  // const [arrayVideos, setArray] = useState([]);
   let count = 0;
 
   const URL = "https://search.imdbot.workers.dev/?q=";
 
-  const MyURL = () => {
-    const { data, isLoading } = useQuery({
-      queryKey: [`search_${text}`],
-      queryFn: async () => {
-        const res = await fetch(URL + text);
-        return res.json();
-      },
-    });
+  const { data, isLoading } = useQuery({
+    queryKey: [`search_${text}`],
+    queryFn: async () => {
+      const res = await fetch(URL + text);
+      return res.json();
+    },
+  });
 
-    if (isLoading) {
-      return (
-        <div>
-          <p>Loading...</p>
-        </div>
-      );
-    }
+  if (isLoading) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
-    const arreglo = data.description.map((index: never) => {count++; return(
+  const array = data.description.map((index: never) => {
+    count++;
+    return (
       <div>
         <Video
           key={index["#IMDB_ID"]}
           name={index["#TITLE"]}
           image={index["#IMG_POSTER"]}
           autor={index["#YEAR"]}
-          //id={}
         />
       </div>
-    )});
-    return (
-      <div >
-        <Typography variant="h6" fontWeight="bold" paddingY={1}>
-          {count > 0 ? count + " Videos" : `No matches for “${text}”`}
-        </Typography>
-        {arreglo}
-      </div>
     );
-  };
+  });
 
-  /*  function handleClick(item: {
-    name: string;
-    autor: string;
-    image: string;
-    like: boolean;
-  }) {
-    const e = array.indexOf(item);
-
-    newArray(
-      array.map((element, i) => {
-        if (i === e) {
-          const update = !element.like;
-          return { ...element, like: update };
-        }
-        return element;
-      })
-    );
-  }*/
+  const counter = (
+    <Typography variant="h6" fontWeight="bold" paddingY={1}>
+      {count > 0 ? count + " Videos" : `No matches for “${text}”`}
+    </Typography>
+  );
 
   return (
     <>
@@ -109,7 +85,8 @@ export default function VideoSearcher() {
             setText(e.target.value);
           }}
         ></TextField>
-        <List>{MyURL()}</List>
+        {counter}
+        <List>{array}</List>
       </Stack>
     </>
   );
