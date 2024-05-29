@@ -8,6 +8,7 @@ import CardList from "./challenges/CardList.tsx";
 import Layout from "./challenges/Layout.tsx";
 import VideoSearcher from "./challenges/VideoSearcher.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Details from "./components/video/Details.tsx";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/videoSearcher",
         element: <VideoSearcher />,
+      },
+      {
+        path: "/videoSearcher/:id",
+        element: <Details />,
       },
     ],
   },

@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 import {
   //IconButton,
   ListItemButton,
   ListItemText,
   Typography,
-  Link,
 } from "@mui/material";
 //import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 type Props = {
+  id: string;
   image: string;
   name: string;
   autor: string;
@@ -16,6 +18,7 @@ type Props = {
 };
 
 export default function Video({
+  id,
   name,
   image,
   //like,
@@ -25,14 +28,16 @@ Props) {
   return (
     <ListItemButton>
       <div>
-        <img
-          src={image}
-          alt={name}
-          style={{ width: "130px", height: "80px", borderRadius: 15 }}
-        />
+        <Link to={`/videoSearcher/${id}` }>
+          <img
+            src={image}
+            alt={name}
+            style={{ width: "130px", height: "80px", borderRadius: 15 }}
+          />
+        </Link>
       </div>
       <ListItemText sx={{ margin: 2 }}>
-        <Link href={"id"} underline="none">
+        <Link to={`/videoSearcher/${id}`} style={{color: 'black', textDecorationLine:'none'}}>
           <Typography fontWeight="bold">{name}</Typography>
         </Link>
         <Typography sx={{ color: "gray" }}>{autor}</Typography>

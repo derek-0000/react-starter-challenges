@@ -20,7 +20,6 @@ export default function VideoSearcher() {
 
   //const [array, newArray] = useState(info);
 
-  // const [arrayVideos, setArray] = useState([]);
   let count = 0;
 
   const URL = "https://search.imdbot.workers.dev/?q=";
@@ -42,19 +41,23 @@ export default function VideoSearcher() {
       );
     }
 
-    const arreglo = data.description.map((index: never) => {count++; return(
-      <div>
-        <Video
-          key={index["#IMDB_ID"]}
-          name={index["#TITLE"]}
-          image={index["#IMG_POSTER"]}
-          autor={index["#YEAR"]}
-          //id={}
-        />
-      </div>
-    )});
+    const arreglo = data.description.map((index: never) => {
+      count++;
+      return (
+        <div>
+          <Video
+            key={index["#IMDB_ID"]}
+            name={index["#TITLE"]}
+            image={index["#IMG_POSTER"]}
+            autor={index["#YEAR"]}
+            id={index["#IMDB_ID"]}
+          />
+        </div>
+      );
+    });
+
     return (
-      <div >
+      <div>
         <Typography variant="h6" fontWeight="bold" paddingY={1}>
           {count > 0 ? count + " Videos" : `No matches for “${text}”`}
         </Typography>
