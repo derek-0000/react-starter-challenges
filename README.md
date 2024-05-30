@@ -110,6 +110,18 @@
 
 </details>
 
+8. Now, for our video app we want to have a user profile. Lets add a `UserContext` that holds the users information so we can use it in our `layout` and in a `/user` page.
+
+<details>
+  <summary>Topics</summary>
+
+#### React
+
+  [createContext]([https://react.dev/learn](https://react.dev/reference/react/createContext)) ->
+  [useContext](https://react.dev/reference/react/useContext)
+
+</details>
+
 ## How to start
 
 Clone the repository, head to it's directory and run the following commands:
