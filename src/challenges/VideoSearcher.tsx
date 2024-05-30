@@ -5,28 +5,65 @@ import {
   InputAdornment,
   List,
 } from "@mui/material";
-import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-//import FavoriteIcon from "@mui/icons-material/Favorite";
-import { data } from "../utils/mock/videos.ts";
+
+import { useState } from "react";
+//import { info } from "../utils/mock/videos.ts";
+
+//Components
 import Video from "../components/video/Video.tsx";
+
+import { useQuery } from "@tanstack/react-query";
 
 export default function VideoSearcher() {
   const [text, setText] = useState("");
 
-  const [array, newArray] = useState(data);
+  //const [array, newArray] = useState(info);
 
-  function filteredVideos() {
-    const videos = array.filter(
-      (item) =>
-        item.name.toLowerCase().includes(text.toLowerCase()) ||
-        item.autor.toLowerCase().includes(text.toLocaleLowerCase())
+  // const [arrayVideos, setArray] = useState([]);
+  let count = 0;
+
+  const URL = "https://search.imdbot.workers.dev/?q=";
+
+  const MyURL = () => {
+    const { data, isLoading } = useQuery({
+      queryKey: [`search_${text}`],
+      queryFn: async () => {
+        const res = await fetch(URL + text);
+        return res.json();
+      },
+    });
+
+    if (isLoading) {
+      return (
+        <div>
+          <p>Loading...</p>
+        </div>
+      );
+    }
+
+    const arreglo = data.description.map((index: never) => {count++; return(
+      <div>
+        <Video
+          key={index["#IMDB_ID"]}
+          name={index["#TITLE"]}
+          image={index["#IMG_POSTER"]}
+          autor={index["#YEAR"]}
+          //id={}
+        />
+      </div>
+    )});
+    return (
+      <div >
+        <Typography variant="h6" fontWeight="bold" paddingY={1}>
+          {count > 0 ? count + " Videos" : `No matches for “${text}”`}
+        </Typography>
+        {arreglo}
+      </div>
     );
+  };
 
-    return videos;
-  }
-
-  function handleClick(item: {
+  /*  function handleClick(item: {
     name: string;
     autor: string;
     image: string;
@@ -43,7 +80,7 @@ export default function VideoSearcher() {
         return element;
       })
     );
-  }
+  }*/
 
   return (
     <>
@@ -68,26 +105,12 @@ export default function VideoSearcher() {
             ),
           }}
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
         ></TextField>
-        <Typography variant="h6" fontWeight="bold" paddingY={1}>
-          {filteredVideos().length > 0
-            ? filteredVideos().length + " Videos"
-            : `No matches for “${text}”`}
-        </Typography>
+        <List>{MyURL()}</List>
       </Stack>
-
-      {filteredVideos().map((item, index) => (
-        <List key={index} sx={{ background: "" }}>
-          <Video
-            name={item.name}
-            image={item.image}
-            like={item.like}
-            autor={item.autor}
-            handleClick={() => handleClick(item)}
-          />
-        </List>
-      ))}
     </>
   );
 }
