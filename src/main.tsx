@@ -7,19 +7,22 @@ import UsingProps from "./challenges/UsingProps.tsx";
 import CardList from "./challenges/CardList.tsx";
 import Layout from "./challenges/Layout.tsx";
 import VideoSearcher from "./challenges/VideoSearcher.tsx";
+import User from "./challenges/User.tsx"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import UserContextProvider from "./components/contexts/UserContext.tsx";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <QueryClientProvider client={queryClient}>
-        <Layout>
-          <Outlet />
-        </Layout>
-      </QueryClientProvider>
+      <UserContextProvider>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            <Outlet />
+          </Layout>
+        </QueryClientProvider>
+      </UserContextProvider>
     ), //Add Layout component here
     children: [
       { index: true, element: <App /> },
@@ -38,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/videoSearcher",
         element: <VideoSearcher />,
+      },
+      {
+        path: "/profile",
+        element: <User />,
       },
     ],
   },
