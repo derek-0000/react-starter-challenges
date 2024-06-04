@@ -7,6 +7,7 @@ import {
   Stack,
   TextField,
   Typography,
+  Divider,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -39,13 +40,14 @@ export default function UsingProps() {
           <TextField
             required
             value={task}
+            variant="filled"
             onChange={(e) => setTask(e.target.value)}
           />
           <Button type="submit">Add Todo</Button>
         </form>
       </Stack>
 
-      <List>
+      <List sx={{margin:2}}>
         {data.map((item, index) => (
           <ToDo key={index} name={item} onDelete={() => deleteTodo(index)} />
         ))}
@@ -65,27 +67,30 @@ const ToDo = ({ name, onDelete }: ToDoProps) => {
   const [active, isActive] = useState(false);
 
   return (
-    <ListItem
-      onMouseOver={() => {
-        isActive(true);
-      }}
-      onMouseOut={() => {
-        isActive(false);
-      }}
-    >
-      <ListItemButton sx={{ justifyContent: "space-between" }}>
-        <Typography>{name} </Typography>
+    <>
+      <ListItem sx={{height:60}}
+        onMouseOver={() => {
+          isActive(true);
+        }}
+        onMouseOut={() => {
+          isActive(false);
+        }}
+      >
+        <ListItemButton sx={{ justifyContent: "space-between" }}>
+          <Typography>{name} </Typography>
 
-        {active && (
-          <Button
-            onClick={onDelete}
-            variant="contained"
-            startIcon={<DeleteIcon />}
-          >
-            Delete
-          </Button>
-        )}
-      </ListItemButton>
-    </ListItem>
+          {active && (
+            <Button
+              onClick={onDelete}
+              variant="contained"
+              startIcon={<DeleteIcon />}
+            >
+              Delete
+            </Button>
+          )}
+        </ListItemButton>
+      </ListItem>
+      <Divider component="li" />
+    </>
   );
 };

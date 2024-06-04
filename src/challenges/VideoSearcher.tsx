@@ -88,15 +88,15 @@ export default function VideoSearcher() {
   return (
     <>
       <Stack sx={{ p: 2 }}>
-        <Typography variant="h4" fontWeight="bold" paddingY={1}>
+        <Typography variant="h4" fontWeight={"bold"} marginY={2}>
           React Videos
         </Typography>
-        <Typography variant="h6" color={"#36454F"}>
+        <Typography variant="h6" marginBottom={2}>
           A brief history of React
         </Typography>
 
         <TextField
-          sx={{ backgroundColor: "", borderRadius: 10 }}
+          sx={{ backgroundColor: ""}}
           variant="outlined"
           placeholder="Search"
           type="text"
