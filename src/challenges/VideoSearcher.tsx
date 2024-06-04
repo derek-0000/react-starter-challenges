@@ -20,7 +20,6 @@ export default function VideoSearcher() {
 
   //const [array, newArray] = useState(info);
 
-  // const [arrayVideos, setArray] = useState([]);
   let count = 0;
 
   const URL = "https://search.imdbot.workers.dev/?q=";
@@ -42,19 +41,23 @@ export default function VideoSearcher() {
       );
     }
 
-    const arreglo = data.description.map((index: never) => {count++; return(
-      <div>
-        <Video
-          key={index["#IMDB_ID"]}
-          name={index["#TITLE"]}
-          image={index["#IMG_POSTER"]}
-          autor={index["#YEAR"]}
-          //id={}
-        />
-      </div>
-    )});
+    const arreglo = data.description.map((index: never) => {
+      count++;
+      return (
+        <div>
+          <Video
+            key={index["#IMDB_ID"]}
+            name={index["#TITLE"]}
+            image={index["#IMG_POSTER"]}
+            autor={index["#YEAR"]}
+            id={index["#IMDB_ID"]}
+          />
+        </div>
+      );
+    });
+
     return (
-      <div >
+      <div>
         <Typography variant="h6" fontWeight="bold" paddingY={1}>
           {count > 0 ? count + " Videos" : `No matches for “${text}”`}
         </Typography>
@@ -85,15 +88,15 @@ export default function VideoSearcher() {
   return (
     <>
       <Stack sx={{ p: 2 }}>
-        <Typography variant="h4" fontWeight="bold" paddingY={1}>
+        <Typography variant="h4" fontWeight={"bold"} marginY={2}>
           React Videos
         </Typography>
-        <Typography variant="h6" color={"#36454F"}>
+        <Typography variant="h6" marginBottom={2}>
           A brief history of React
         </Typography>
 
         <TextField
-          sx={{ backgroundColor: "", borderRadius: 10 }}
+          sx={{ backgroundColor: ""}}
           variant="outlined"
           placeholder="Search"
           type="text"
