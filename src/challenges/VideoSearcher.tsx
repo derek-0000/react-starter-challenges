@@ -8,17 +8,16 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 import { useState } from "react";
-//import { info } from "../utils/mock/videos.ts";
 
 //Components
 import Video from "../components/video/Video.tsx";
 
 import { useQuery } from "@tanstack/react-query";
 
+//Use Context
+
 export default function VideoSearcher() {
   const [text, setText] = useState("");
-
-  //const [array, newArray] = useState(info);
 
   let count = 0;
 
@@ -66,23 +65,14 @@ export default function VideoSearcher() {
     );
   };
 
-  /*  function handleClick(item: {
-    name: string;
-    autor: string;
-    image: string;
-    like: boolean;
-  }) {
-    const e = array.indexOf(item);
-
-    newArray(
-      array.map((element, i) => {
-        if (i === e) {
-          const update = !element.like;
-          return { ...element, like: update };
-        }
-        return element;
-      })
-    );
+  /*function handle(id: string) {
+    if (array.includes(id)) {
+      setArray(array.filter((element) => element !== id));
+      console.log("eliminado");
+    } else {
+      setArray(array.concat(id));
+      console.log("Agregado");
+    }
   }*/
 
   return (
@@ -96,7 +86,6 @@ export default function VideoSearcher() {
         </Typography>
 
         <TextField
-          sx={{ backgroundColor: ""}}
           variant="outlined"
           placeholder="Search"
           type="text"

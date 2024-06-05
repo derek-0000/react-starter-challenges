@@ -21,9 +21,14 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ReplyIcon from "@mui/icons-material/Reply";
 import DownloadIcon from "@mui/icons-material/Download";
 
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+
 const URL = "https://search.imdbot.workers.dev/?tt=";
 
 export default function Details() {
+  const { handleClick, likes } = useContext(UserContext);
+
   const { id } = useParams();
 
   const { data, isLoading } = useQuery({
@@ -46,7 +51,6 @@ export default function Details() {
             <video
               style={{ width: "100%", borderRadius: 10 }}
               src={data.top.primaryVideos.edges[0].node.playbackURLs[0].url}
-              //autoPlay
               controls
             ></video>
           </Box>
@@ -76,7 +80,7 @@ export default function Details() {
                   <Avatar alt={data.short.name} src={data.short.image} />
 
                   <Stack>
-                    <Typography fontWeight={"bold"}>
+                    <Typography fontWeight="bold">
                       {
                         data.top.production.edges[1].node.company.companyText
                           .text
@@ -99,18 +103,18 @@ export default function Details() {
                 />
               </Stack>
 
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                spacing={1}
-              >
+              <Stack direction="row" justifyContent="space-between" spacing={1}>
                 <Button
+                  onClick={() => handleClick(data.top.id)}
                   sx={{
                     borderRadius: 20,
                     textTransform: "capitalize",
                     height: 30,
                     width: 90,
-                    background: "rgba(255, 255, 255, 0.16)",
+                    //Color.
+                    background: likes.includes(data.top.id)
+                      ? "#4dabf5"
+                      : "rgba(255, 255, 255, 0.16)",
                     color: "white",
                   }}
                   variant="contained"
@@ -172,14 +176,17 @@ export default function Details() {
             <AccordionDetails>
               <Typography
                 variant="h6"
-                sx={{ color: "#646464", marginBottom:1}}
+                sx={{ color: "#646464", marginBottom: 1 }}
                 fontWeight={"bold"}
               >
                 {data.short.review.itemReviewed["@type"]}
               </Typography>
 
               <Typography>{data.short.description}</Typography>
-              <Typography sx={{ color: "#646464", marginTop:1}} fontWeight="bold">
+              <Typography
+                sx={{ color: "#646464", marginTop: 1 }}
+                fontWeight="bold"
+              >
                 Date Created: {data.short.review.dateCreated}
               </Typography>
               <Stack justifyContent="left " direction={"row"}>
